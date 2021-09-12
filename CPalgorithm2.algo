@@ -6,7 +6,8 @@ VAR
     j:=INTEGER;
     S:= BOOLEAN;
 BEGIN
-sum:= 0 ; 
+sum1:= 0 ; 
+sum2:= 0 ;
 REPEAT
  FOR i FROM 0 TO tab.length-1 STEP 1  DO
  write C1
@@ -19,9 +20,25 @@ REPEAT
     END_IF
     END_FOR
 IF S:= true THEN
-sum:= C1 [i] + C2 [j]
+sum1:= sum1 + C1 [i] 
 ELSE 
-sum:= 0
+sum1:= 0
+FOR i FROM 0 TO tab.length-1 STEP 1  DO
+ write C1
+    FOR j FROM 0 TO tab.length-1 STEP 1  DO
+    write C2
+    IF (C2[j] <> C1[i] ) then
+    S:= true  
+    ELSE
+    S:= false
+    END_IF
+    END_FOR
+IF S:= true THEN
+sum2:= sum2 + C2 [j] 
+ELSE 
+sum2:= 0
+END_IF
+Sum := sum1 + sum 2 ;
 END_FOR
-write ("Sum of overlapping elements:"+Sum);
+write ("Sum of overlapping elements:" + Sum);
 END CP_alg2
